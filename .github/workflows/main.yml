@@ -1,0 +1,22 @@
+name: practice 
+on: [push,pull_request]
+jobs:
+    build:
+        name: Test Job 1 
+        runs-on: ubuntu-latest
+        strategy: 
+            matrix:
+                node-version: [18.x]
+        steps:
+        - name: checkout
+          uses: actions/checkout@v2
+        - name: setup node
+          uses: actions/setup-node@v1
+        - name: setup 
+          run: |
+            npm install
+        - name: run-index file
+          run: |
+            node index.js    
+
+
